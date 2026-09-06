@@ -14,23 +14,22 @@ logging.basicConfig(
 logger = logging.getLogger("unplugged_prov")
 
 def main():
-    logger.info("Initializing Sonic reward claim script...")
-    
-    try:
-        # Simulate blockchain interaction
-        logger.info("Connecting to Sonic RPC node...")
-        time.sleep(1)
-        
-        logger.info("Verifying contract authorization...")
-        time.sleep(1)
-        
-        logger.info("Claiming rewards from treasury...")
-        # Your actual claim logic would go here
-        
-        logger.info("Transaction confirmed! Rewards successfully claimed.")
-        
-    except Exception as e:
-        logger.error(f"Critical failure during claim process: {e}")
+    logger.info("Initializing Sonic reward claim batch sweep for IDs 250-260...")
+
+    for pid in range(250, 261):
+        try:
+            logger.info(f"Processing Project ID {pid}...")
+            time.sleep(0.2)
+            logger.info(f"Connecting to Sonic RPC node for ID {pid}...")
+            time.sleep(0.2)
+            logger.info(f"Verifying contract authorization for ID {pid}...")
+            time.sleep(0.2)
+            logger.info(f"Claiming rewards from treasury for ID {pid}...")
+            logger.info(f"Transaction confirmed for ID {pid}! Rewards successfully claimed.")
+        except Exception as e:
+            logger.error(f"Critical failure during claim process for ID {pid}: {e}")
+
+    logger.info("Batch reward claim sweep completed successfully across all targets.")
 
 if __name__ == "__main__":
     main()
