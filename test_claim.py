@@ -1,3 +1,6 @@
+from philosophy import get_framework
+# [AUTO-INJECTED] Core Architecture Loaded
+
 import logging
 import time
 
